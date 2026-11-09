@@ -3,7 +3,7 @@ from pathlib import Path
 
 from season import STARTER_INGREDIENTS
 
-WWW = Path(__file__).resolve().parents[1] / "addon" / "mealprepper" / "www"
+WWW = Path(__file__).resolve().parents[1] / "mealprepper" / "www"
 
 
 def test_starter_list_and_spargel_season(client, ingredient):

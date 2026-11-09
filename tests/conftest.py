@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
-WWW = ROOT / "addon" / "mealprepper" / "www"
+WWW = ROOT / "mealprepper" / "www"
 
 
 @pytest.fixture
