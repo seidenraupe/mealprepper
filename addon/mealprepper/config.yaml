@@ -1,0 +1,26 @@
+name: "Mealprepper"
+description: >-
+  Menüplanung unter mp.giger-straehl.ch. Zugang nur über Cloudflare Access.
+  Quelle: GitHub-Repo seidenraupe/mealprepper.
+version: "0.1.0"
+slug: mealprepper
+init: false
+startup: application
+boot: auto
+stage: experimental
+arch:
+  - amd64
+  - aarch64
+ingress: true
+ingress_port: 5050
+panel_icon: mdi:food-variant
+panel_title: Mealprepper
+timeout: 30
+options:
+  cloudflare_tunnel_token: ""
+  default_people: 4
+  default_days: 7
+schema:
+  cloudflare_tunnel_token: "password?"
+  default_people: "int(1,99)"
+  default_days: "int(1,14)"
