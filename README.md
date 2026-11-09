@@ -51,7 +51,7 @@ Nach dem Kopieren vom PC im Heimnetz:
 | `HA_URL` | Home Assistant, z. B. `http://192.168.1.200:8123` |
 | `HA_TOKEN` | langlebiges Token unter Profil, Sicherheit |
 
-Das Skript kopiert `addon/mealprepper` nach `\\homeassistant\addons\mealprepper`,
+Das Skript kopiert `mealprepper` nach `\\homeassistant\addons\mealprepper`,
 liest den Store neu ein, baut ein bestehendes Add-on neu oder installiert es beim ersten Mal
 und startet es. Es deinstalliert nichts. Die Datenbank in `/data` bleibt erhalten.
 

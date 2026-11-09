@@ -1,4 +1,4 @@
-# Spielt addon/mealprepper auf Home Assistant aus und baut das lokale Add-on neu.
+# Spielt mealprepper auf Home Assistant aus und baut das lokale Add-on neu.
 # Deinstalliert nichts — die Datenbank in /data bleibt erhalten.
 #
 # Erwartet in der Umgebung oder in .env im Repo-Root:
@@ -7,7 +7,7 @@
 
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
-$Source = Join-Path $Root "addon\mealprepper"
+$Source = Join-Path $Root "mealprepper"
 $EnvFile = Join-Path $Root ".env"
 
 if (Test-Path $EnvFile) {
