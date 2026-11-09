@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mealprepper</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="mark">Mealprepper</p>
+      <h1>Vorrat, Saison, Plan</h1>
+    </div>
+    <nav class="tabs" aria-label="Bereiche">
+      <button type="button" class="tab is-active" data-panel="pantry">Vorrat</button>
+      <button type="button" class="tab" data-panel="recipes">Rezepte</button>
+      <button type="button" class="tab" data-panel="plan">Plan</button>
+    </nav>
+  </header>
+
+  <p id="notice" class="notice" role="status"></p>
+
+  <main>
+    <section id="panel-pantry" class="panel">
+      <form id="ingredient-form" class="card form-grid">
+        <h2>Zutat</h2>
+        <label>Name <input name="name" required maxlength="80" autocomplete="off"></label>
+        <label>Einheit <input name="unit" maxlength="24" placeholder="g, Stk, ml" autocomplete="off"></label>
+        <fieldset class="months">
+          <legend>Saison, leer bedeutet ganzjährig</legend>
+          <label><input type="checkbox" name="season" value="1">Jan</label>
+          <label><input type="checkbox" name="season" value="2">Feb</label>
+          <label><input type="checkbox" name="season" value="3">Mär</label>
+          <label><input type="checkbox" name="season" value="4">Apr</label>
+          <label><input type="checkbox" name="season" value="5">Mai</label>
+          <label><input type="checkbox" name="season" value="6">Jun</label>
+          <label><input type="checkbox" name="season" value="7">Jul</label>
+          <label><input type="checkbox" name="season" value="8">Aug</label>
+          <label><input type="checkbox" name="season" value="9">Sep</label>
+          <label><input type="checkbox" name="season" value="10">Okt</label>
+          <label><input type="checkbox" name="season" value="11">Nov</label>
+          <label><input type="checkbox" name="season" value="12">Dez</label>
+        </fieldset>
+        <button type="submit">Zutat speichern</button>
+      </form>
+      <label class="filter">Suchen <input id="pantry-filter" type="search" placeholder="Name"></label>
+      <div id="pantry-list" class="stack"></div>
+    </section>
+
+    <section id="panel-recipes" class="panel" hidden>
+      <form id="recipe-form" class="card form-grid">
+        <h2 id="recipe-form-title">Rezept</h2>
+        <label>Titel <input name="title" required maxlength="160" autocomplete="off"></label>
+        <label>Portionen <input name="servings" type="number" min="1" max="99" value="2" required></label>
+        <label>Schritte <textarea name="steps" maxlength="4000" rows="4"></textarea></label>
+        <div class="line-add">
+          <label>Zutat <select id="line-ingredient"></select></label>
+          <label>Menge <input id="line-quantity" type="number" min="0.01" step="0.01" value="1"></label>
+          <button type="button" id="add-line">Zutat hinzufügen</button>
+        </div>
+        <ul id="recipe-lines" class="lines"></ul>
+        <div class="actions">
+          <button type="submit">Rezept speichern</button>
+          <button type="button" id="recipe-reset">Leeren</button>
+        </div>
+      </form>
+      <div id="recipe-list" class="stack"></div>
+    </section>
+
+    <section id="panel-plan" class="panel" hidden>
+      <div class="card plan-head">
+        <p id="season-now"></p>
+        <p class="hint">Die Planung setzt du von Hand. Die spätere Auswahl über den Jetson im Heimnetz kommt danach.</p>
+        <div class="plan-controls">
+          <label>Beginn <input id="plan-start" type="date"></label>
+          <label>Tage <input id="plan-days" type="number" min="1" max="14" step="1"></label>
+        </div>
+      </div>
+      <div id="plan-list" class="stack"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
